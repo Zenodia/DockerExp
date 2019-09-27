@@ -10,3 +10,10 @@ for Docker4Jupyter - follow below instruction to build the docker image and run 
 4. firefox 
 5 enter in the browser --> 0.0.0.0:8888 
 6. run your notebook 
+
+
+for bash_for_docker , follow this blog post -
+
+
+https://www.linkedin.com/pulse/use-bash-command-wrap-docker-build-run-stop-zenodia-charpy/
+
