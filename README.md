@@ -27,10 +27,12 @@ for Docker4Jupyter - follow below instruction to build the docker image and run 
 
 1. sudo docker build -t zenodia/dl-notebook:v1 .
 2.(a) sudo docker run -it -v $(pwd):/root/share2host -p 8888:8888 -i zenodia/dl-notebook:v1 
+
 note: one can run docker with one-liner ,
 one needs to install docker-compose via following instructions on this url : https://docs.docker.com/compose/install/
+
 2.(b) sudo docker-compose up 
-to bring down everything using sudo docker-compos down --volume
+
 3. source activate py36 # inside Data Science Virtual Machine on Azure 
 4. firefox 
 5 enter in the browser --> 0.0.0.0:8888 
