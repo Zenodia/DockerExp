@@ -1,0 +1,2 @@
+model_checkpoint_path: "ngc_checkpoint_weight"
+all_model_checkpoint_paths: "ngc_checkpoint_weight"
