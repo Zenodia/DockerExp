@@ -83,7 +83,7 @@ EPOCHS =int(os.environ['epoch'])
 batch_size=int(os.environ['batch_size'])
 checkpoint_path=os.environ['model_save']
 load_model=os.environ['load_model']
-
+device_num=os.environ['gpu_device_num']
 print("data_path ", data_path)
 print("EPOCHES ", EPOCHS)
 print("batch_size ", batch_size)
@@ -112,8 +112,8 @@ cp_callback = tf.keras.callbacks.ModelCheckpoint(
     filepath=checkpoint_path, 
     monitor='val_loss',
     save_best_only=True)
-
-model_history = model.fit(train, train_mask, batch_size=batch_size, epochs=EPOCHS, verbose=1, shuffle=True,validation_data=(train,train_mask),
+with tf.device('/gpu:{}'.format(device_num)):
+    model_history = model.fit(train, train_mask, batch_size=batch_size, epochs=EPOCHS, verbose=1, shuffle=True,validation_data=(train,train_mask),
           callbacks=[cp_callback,early_stopping_callback])
 
 # Save the weights

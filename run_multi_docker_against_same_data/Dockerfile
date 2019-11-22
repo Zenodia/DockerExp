@@ -3,13 +3,15 @@ ARG 1_data
 ARG 2_load 
 ARG 3_epochs 
 ARG 4_batch_sz 
-ARG 5_save_path 
+ARG 5_save_path
+ARG 6_gpu_num
 
 ENV data_path $1_data
 ENV load_model $2_load
 ENV epoch $3_epochs
 ENV batch_size $4_batch_sz
 ENV model_save $5_save_path
+ENV gpu_device_num $6_gpu_num
 RUN apt-get update
 RUN apt-get install -y libsm6 libxext6 libxrender-dev
 
