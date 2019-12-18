@@ -19,6 +19,7 @@ X_std = X / 255.
 y=np.load('Y.npy')
 print(X.shape,y.shape)
 from tensorflow.keras import Model
+import time
 # this is the default distributed strategy API tensorflow2.0 
 # provided for keras for one machine,multiple GPU training
 
@@ -61,7 +62,9 @@ callbacks = [
         EarlyStopping(monitor='loss',min_delta=1e-5, patience=5)
     
 ]
+start=time.time()
 model.fit(x=X_std, y=y, epochs=100, shuffle=True, callbacks=callbacks )
+print("training took {} seconds \n".format(str(time.time()-start )))
 from tensorflow.keras.models import load_model
 loaded_model=load_model('tf2_test.h5')
 loaded_model.summary()
@@ -69,5 +72,6 @@ loaded_model.summary()
 rn=random.randint(0,len(X)-1)
 out=loaded_model.predict(X_std[rn].reshape(1,150,150,3))
 true_label= 'Pneumonia' if y[rn]==1 else 'Normal'
+
 print("true label is :", true_label )
 print("predicted proba having Pneumonia", str(round(out[0][0],3)))
