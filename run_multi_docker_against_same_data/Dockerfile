@@ -11,7 +11,7 @@ ENV load_model $2_load
 ENV epoch $3_epochs
 ENV batch_size $4_batch_sz
 ENV model_save $5_save_path
-ENV NVIDIA_VISIBLE_DEVICES_num $6_gpu_num
+ENV NVIDIA_VISIBLE_DEVICES $6_gpu_num
 RUN apt-get update
 RUN apt-get install -y libsm6 libxext6 libxrender-dev
 
