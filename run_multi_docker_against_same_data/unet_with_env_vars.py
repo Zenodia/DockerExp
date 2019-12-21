@@ -83,7 +83,7 @@ EPOCHS =int(os.environ['epoch'])
 batch_size=int(os.environ['batch_size'])
 checkpoint_path=os.environ['model_save']
 load_model=os.environ['load_model']
-device_num=os.environ['gpu_device_num']
+device_num=os.environ['NVIDIA_VISIBLE_DEVICES']
 print("data_path ", data_path)
 print("EPOCHES ", EPOCHS)
 print("batch_size ", batch_size)
