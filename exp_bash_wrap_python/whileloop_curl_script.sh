@@ -26,11 +26,5 @@ while IFS= read -r line || [[ -n "$line" ]];
 	  echo "response from chatbot ---> "
 	  echo $result
 	  echo " ############### break for 5 secs ############### "
-	  #curl --location 'https://api-prod.nvidia.com/gtc-chatbot/v1/chat/completions' \
-	  #--header 'Content-Type: application/json' \
-	  #--data $json_w_vars
-      #HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')
-      #echo $HTTP_RESPONSE
-      #save_log "$HTTP_STATUS" "$HTTP_BODY" "$line"
-	  sleep 15
+	  sleep 5
 done < $FILE_NAME

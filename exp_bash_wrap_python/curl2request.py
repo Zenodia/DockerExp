@@ -15,7 +15,7 @@ def post_requests(usr_query):
             },
         ]}
     
-    response = requests.post('https://api-prod.nvidia.com/gtc-chatbot/v1/chat/completions', headers=headers, json=json_data)
+    response = requests.post('nemollm_service_api_call', headers=headers, json=json_data)
     return response
 
 if __name__ == '__main__':
