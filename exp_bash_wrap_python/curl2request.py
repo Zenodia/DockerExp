@@ -1,6 +1,7 @@
 import requests
 import sys, os
 
+
 def post_requests(usr_query):
     headers = {
         'Content-Type': 'application/json',
@@ -15,14 +16,27 @@ def post_requests(usr_query):
             },
         ]}
     
-    response = requests.post('nemollm_service_api_call', headers=headers, json=json_data)
-    return response
-
-if __name__ == '__main__':
-    usr_query=str(sys.argv[1])
-    resp =post_requests(usr_query)
-    if resp == "<Response [200]>":
-        out=resp.json()
-        print(out['content'])
+    response = requests.post('nemollm_api_calls', headers=headers, json=json_data)
+    if response.status_code == 200:
+        output=response.json()
     else:
-        print("some error --- ", resp)
+        output=str(response.status_code)
+    return output
+if __name__ == '__main__':
+    f=open('queries.txt','r')
+    lines=f.readlines()
+    k=len(lines)
+    i=0
+    for line in lines:
+        if i <= k: 
+            usr_query=line
+            print("user query is : \n", usr_query)
+            response= post_requests(usr_query)
+            print("server response is :\n", response)
+            print("-----"*10 )
+        else:break
+        i+=1
+
+        
+    #usr_query=str(sys.argv[1])
+    
